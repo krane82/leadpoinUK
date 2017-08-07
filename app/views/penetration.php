@@ -4,9 +4,9 @@
         <div class="form-group">
             <label for="datepicker">Select Date Range</label>
             <div class="input-daterange input-group" id="datepicker">
-                <input type="text" class="input-sm st form-control" name="start" value="<?php print date('01-m-Y')?>"/>
+                <input type="text" class="input-sm st form-control" name="start" value="<?php print date('m/01/Y')?>"/>
                 <span class="input-group-addon">to</span>
-                <input type="text" class="input-sm en form-control" name="end" value="<?php print date('d-m-Y')?>"/>
+                <input type="text" class="input-sm en form-control" name="end" value="<?php print date('m/d/Y')?>"/>
             </div>
         </div>
         <div class="form-group">

@@ -18,10 +18,11 @@ class Controller_Temp  extends Controller
     }
         public function action_index()
     {
-		session_start();
-		print $_SESSION['token'];
-		
-//        $con=$this->db();
+        $con=$this->db();
+        $sql="SELECT * FROM token";
+        $res=$con->query($sql);
+        $row=$res->fetch_assoc();
+        print $row['token'];
 //        $sql="SELECT cli.id, cri.weekly, cri.postcodes from clients cli left join clients_criteria cri on cli.id=cri.id";
 //        $res=$con->query($sql);
 //        $sql1='INSERT INTO client_criteria (camp_name, weekly, client_id, postcodes, camp_status) VALUES ';

@@ -12,7 +12,6 @@ public function getLimits()
     $con = $this->db();
     $beginOfMonth = strtotime(date('Y-m-01'));
     $Monday = strtotime("Monday this week");
-
     $sql="select c.id, c.campaign_name, cri.weekly, (cri.weekly*4) as monthly, count(ld.timedate) as thisMonth
  from clients c
 left join clients_criteria cri on c.id=cri.id left join leads_delivery ld on c.id=ld.client_id

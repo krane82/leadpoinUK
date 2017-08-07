@@ -32,10 +32,10 @@ class Model_Leads extends Model {
     $con=$this->db();
     //return var_dump($_POST);
     $leadId=$_POST['lead_id'];
-	$author=$_SESSION['user_id'];
+    $author=$_SESSION['user_id'];
     $sql="SELECT us.full_name, con.id, con.author, con.message, con.seen, con.time FROM lead_conversations con JOIN users us ON con.author=us.id WHERE con.lead_id='$leadId' ORDER BY con.time";
     $result=array();
-    $res=$con->query($sql);                  
+    $res=$con->query($sql);
     if($res)
     {
       while($row=$res->fetch_assoc())
@@ -48,22 +48,22 @@ class Model_Leads extends Model {
         $sql1 = "UPDATE `lead_conversations` SET `seen`=CONCAT(`seen`,'$author,') WHERE id='$ins'";
         $con->query($sql1);
       }
-        $result['leadid']=$leadId;
-	  $result['author']=$author;
+      $result['leadid']=$leadId;
+      $result['author']=$author;
       return $result;
     }
     return false;
   }
   public function addConv()
   {
-	  $con=$this->db();
-	  $leadId=$_POST['leadId'];
-	  $userId=$_POST['userId'];
-	  $message=$_POST['message'];
-	  $message=$this->clean($message);
-	  $sql="INSERT INTO lead_conversations (lead_id, author, message, seen) VALUES ('$leadId', '$userId', '$message','$userId,')";
-	$res=$con->query($sql);
-	$sql1="SELECT id FROM lead_conversations WHERE lead_id='$leadId' LIMIT 1";
+    $con=$this->db();
+    $leadId=$_POST['leadId'];
+    $userId=$_POST['userId'];
+    $message=$_POST['message'];
+    $message=$this->clean($message);
+    $sql="INSERT INTO lead_conversations (lead_id, author, message, seen) VALUES ('$leadId', '$userId', '$message','$userId,')";
+    $res=$con->query($sql);
+    $sql1="SELECT id FROM lead_conversations WHERE lead_id='$leadId' LIMIT 1";
     $res1=$con->query($sql1);
     $result=$res1->fetch_assoc();
     $ins=$result['id'];
@@ -72,25 +72,24 @@ class Model_Leads extends Model {
       $con->query("UPDATE lead_conversations SET seen='$userId,' WHERE id='$ins'");
     }
     if($res)
-	{
-		return true;
-	}
-	return false;
+    {
+      return true;
+    }
+    return false;
   }
-
   public function sendLeadsFromCSV()
- {
-   $api=new Model_Api();
-   $arr=$_POST['array'];
-   $arr=urldecode($arr);
-   $arr=unserialize($arr);
-   $str='';
-   foreach($arr as $item)
-   {
-     $str.=$api->proccess_lead($item).'<br>';
-   }
-   return $str;
- }
+  {
+    $api=new Model_Api();
+    $arr=$_POST['array'];
+    $arr=urldecode($arr);
+    $arr=unserialize($arr);
+    $str='';
+    foreach($arr as $item)
+    {
+      $str.=$api->proccess_lead($item).'<br>';
+    }
+    return $str;
+  }
   private function getLeadInfo($id)
   {
     $con = $this->db();
@@ -129,7 +128,6 @@ class Model_Leads extends Model {
           print 'Error!';
         }
         $i++;
-        //usleep(250000); Chernitsov
       }
     }
     else {
@@ -140,7 +138,6 @@ class Model_Leads extends Model {
           print 'error!';
         }
         $i++;
-          //usleep(250000); Chernitsov
       }
     }
     print $i.' Leads done';
@@ -177,6 +174,7 @@ class Model_Leads extends Model {
     for ($i=0;$i<$postcodesLen;$i++){$postcodes[$i] = trim($postcodes[$i]);}
     if (!in_array($leadInfo['postcode'],$postcodes)) return 'This client is unmatched to receive this lead';
     if(in_array($client_id, $receivers )) return "This client already has this lead";
+
       $readyLeadInfo = prepareLeadInfo($leadInfo);
 
       if (!$reroute) {
@@ -193,7 +191,7 @@ class Model_Leads extends Model {
           return "mail error: $sent";
         }
       } else {
-        return "Cannot send over client caps...";
+        return "mail error: $sent";
       }
     }
 
@@ -224,7 +222,6 @@ class Model_Leads extends Model {
     }
     return false;
   }
-
   private function getList($start, $end, $state=false, $source=false)
   {
     $con = $this->db();
@@ -241,7 +238,6 @@ class Model_Leads extends Model {
     }
     return false;
   }
-
   private function sendToClients($clients, $lead_id ,$p){
     $receivers=$this->getLeadFromDelivered($lead_id);
     $counter = count($receivers);
@@ -267,9 +263,9 @@ class Model_Leads extends Model {
           $sentTo .= "Lead #$lead_id sent to $c[full_name] : $c[email]<br>\n";
           $this->api->addToDeliveredTable($id, $lead_id, $readyLeadInfo, $camp_id);
           $delivery_id+=1;
-         // return 'Lead sent and added to database';
+          // return 'Lead sent and added to database';
         }
-          else
+        else
         {
           $sentTo.= 'for some reason lead can not be sent<br>';
         }
@@ -369,10 +365,10 @@ class Model_Leads extends Model {
   }
   private function clean($item)
   {
-	  $item=htmlspecialchars($item);
-	  $item=addslashes($item);
-	  $item=trim($item);
-	  return $item;
+    $item=htmlspecialchars($item);
+    $item=addslashes($item);
+    $item=trim($item);
+    return $item;
   }
 
   public function addToDeliveredTable($client_id, $lead_id, $p, $camp_id){
@@ -390,4 +386,3 @@ class Model_Leads extends Model {
     }
   }
 }
-?>

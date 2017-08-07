@@ -350,7 +350,6 @@ $('#submitDocus').click(function(){
         data: ({recipientName: authorised_person, recipientEmail: email_docus}),
         beforeSend: darkLoader,
         success: function(res) {
-            console.log(res);
             $('#overlay').hide();
             $('#docusEvent').html('<iframe src="' + res + '" id="docusFrame" width="1000" height="450" style="border-width:0px;"></iframe>');
             console.log(window.parent.document.getElementById('docusFrame').parentNode);

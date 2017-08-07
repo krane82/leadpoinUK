@@ -1,5 +1,6 @@
 {
     "require": {
-        "docusign/esign-client": "^3.0"
+        "docusign/esign-client": "^3.0",
+        "infusionsoft/php-sdk": "^1.2"
     }
 }

@@ -30,10 +30,11 @@ class Controller_Campaigns extends Controller {
   }
   function action_getDashboard()
   {
-    $id=$_POST['id'];
+    $id=$_POST['client'];
     $begin=$_POST['begin'];
     $end=$_POST['end'];
     $data=$this->model->getDashboard($id,$begin,$end);
+    print json_encode($data);
   }
   function action_planing_ajax()
   {

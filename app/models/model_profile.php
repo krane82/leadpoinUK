@@ -75,7 +75,7 @@ class Model_Profile extends Model {
     $mail->SetFrom('info@energysmart.com.au', 'Energy Smart Notification');
 
     $mail->AddAddress(ADMINEMAIL, 'Joash Boyton');
-    $mail->AddAddress('ariel@energysmart.com.au', 'Ariel');
+    $mail->AddAddress('ariel.w@energysmart.com.au', 'Ariel');
     $mail->AddAddress('Emma@energysmart.com.au', 'Emma Boyton');
     $mail->AddAddress('Jarrad@energysmart.com.au', 'Jarrad van de Laarschot');
 
@@ -142,5 +142,28 @@ class Model_Profile extends Model {
     }
     return $p;
   }
+
+    public function count_notifications($id) {
+        $con = $this->db();
+        $sql = "SELECT count(*) FROM `leads_delivery` WHERE client_id = $id AND seen = 0";
+        $res = $con->query($sql);
+        if ($res) {
+            $row = $res->fetch_row();
+            $num = $row[0];
+            return $num;
+        }
+    }
+
+    public function get_new_notifications($id) {
+        $con = $this->db();
+        $sql = "SELECT leads_delivery.timedate, leads_lead_fields_rel.suburb FROM leads_delivery JOIN leads_lead_fields_rel ON leads_delivery.lead_id = leads_lead_fields_rel.id WHERE leads_delivery.client_id = $id AND seen = 0 ORDER BY leads_delivery.timedate DESC LIMIT 8";
+        $res = $con->query($sql);
+        if ($res) {
+            while ($row = $res->fetch_array(MYSQLI_ASSOC)) {
+                $array[] = $row;
+            }
+            return $array;
+        }
+    }
 }
 

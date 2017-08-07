@@ -181,20 +181,3 @@ Stack trace:
 [08-Jun-2017 06:54:23 UTC] DocuSign Webhook: created /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/tmp/Edb9dafd4f4fc4ac060953138a550a558/T2017-06-07T23_54_20.1298564.xml
 [08-Jun-2017 06:55:01 UTC] DocuSign Webhook: created /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/tmp/Edb9dafd4f4fc4ac060953138a550a558/T2017-06-07T23_54_57.6365655.xml
 [08-Jun-2017 06:55:03 UTC] DocuSign Webhook: created /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/tmp/Edb9dafd4f4fc4ac060953138a550a558/T2017-06-07T23_55_01.8279276.xml
-[03-Jul-2017 11:02:38 UTC] PHP Fatal error:  Class 'DocuSign\eSign\Configuration' not found in /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/docusign_embedded_sign_api.php on line 9
-[03-Jul-2017 11:04:36 UTC] PHP Fatal error:  Class 'DocuSign\eSign\Configuration' not found in /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/docusign_embedded_sign_api.php on line 9
-[03-Jul-2017 11:09:16 UTC] DocuSign Webhook: created /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/tmp/Edb9dafd4f4fc4ac060953138a550a558/T2017-07-03T04_09_13.3505108.xml
-[03-Jul-2017 11:09:40 UTC] DocuSign Webhook: created /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/tmp/Edb9dafd4f4fc4ac060953138a550a558/T2017-07-03T04_09_38.6331364.xml
-[03-Jul-2017 11:30:14 UTC] DocuSign Webhook: created /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/tmp/Edb9dafd4f4fc4ac060953138a550a558/T2017-07-03T04_30_12.2825066.xml
-[03-Jul-2017 11:31:54 UTC] PHP Fatal error:  Class 'DocuSign\eSign\Configuration' not found in /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/docusign_embedded_sign_api.php on line 9
-[03-Jul-2017 11:32:35 UTC] PHP Fatal error:  Class 'DocuSign\eSign\Configuration' not found in /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/docusign_embedded_sign_api.php on line 9
-[03-Jul-2017 11:33:55 UTC] DocuSign Webhook: created /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/tmp/Edb9dafd4f4fc4ac060953138a550a558/T2017-07-03T04_33_51.7992981.xml
-[03-Jul-2017 12:23:36 UTC] PHP Fatal error:  Class 'ComposerAutoloaderInit005fff4529fad1a74a6d28e7b1855924' not found in /home/fencingm/public_html/energysmart.com.au/leadpoint/vendor/autoload.php on line 7
-[03-Jul-2017 12:31:40 UTC] DocuSign Webhook: created /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/tmp/E7b06cf9fcddba94e05436dafd826a3fa/T2017-07-03T05_31_37.3134941.xml
-[03-Jul-2017 12:31:43 UTC] DocuSign Webhook: created /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/tmp/E7b06cf9fcddba94e05436dafd826a3fa/T2017-07-03T05_31_41.6305461.xml
-[03-Jul-2017 12:32:52 UTC] DocuSign Webhook: created /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/tmp/E7b06cf9fcddba94e05436dafd826a3fa/T2017-07-03T05_32_50.7890987.xml
-[03-Jul-2017 12:32:54 UTC] DocuSign Webhook: created /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/tmp/E7b06cf9fcddba94e05436dafd826a3fa/T2017-07-03T05_32_53.0357357.xml
-[04-Jul-2017 14:50:10 UTC] DocuSign Webhook: created /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/tmp/E6edbd05b14dd2f57df6d491832fc174f/T2017-07-04T07_50_07.262405.xml
-[04-Jul-2017 14:50:15 UTC] DocuSign Webhook: created /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/tmp/E6edbd05b14dd2f57df6d491832fc174f/T2017-07-04T07_50_11.2995222.xml
-[04-Jul-2017 14:52:40 UTC] DocuSign Webhook: created /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/tmp/E6edbd05b14dd2f57df6d491832fc174f/T2017-07-04T07_52_36.7952254.xml
-[04-Jul-2017 14:52:42 UTC] DocuSign Webhook: created /home/fencingm/public_html/energysmart.com.au/leadpoint/app/api/tmp/E6edbd05b14dd2f57df6d491832fc174f/T2017-07-04T07_52_40.9767434.xml

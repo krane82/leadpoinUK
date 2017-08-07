@@ -28,6 +28,11 @@ class Controller_client_leads extends Controller
 
     if ( $_SESSION['user'] ==  md5('user')) {
 
+      $data['notif_counter'] = $this->model->count_notifications($_SESSION['user_id']);
+      $data['notifications'] = $this->model->get_new_notifications($_SESSION['user_id']);
+
+      $this->model->update_notifications($_SESSION['user_id']);
+
       $this->view->generate('client_leads_view.php', 'client_template_view.php', $data);
 
     } else if ( $_SESSION['user'] ==  md5('manager')) {
@@ -50,7 +55,7 @@ class Controller_client_leads extends Controller
 
 
 
-  function action_reject_Lead(){
+ /*function action_reject_Lead(){
 
     session_start();
 
@@ -88,7 +93,75 @@ class Controller_client_leads extends Controller
 
     }
 
+  }*/
+
+  function action_reject_Lead(){
+
+    session_start();
+
+    $lead_id = $_POST["lead_id"];
+
+    $client_id = $_SESSION["user_id"];
+
+    $reason = $_POST["reject_reason"];
+
+    $notes = $_POST["notes"];
+
+    $notes=trim($notes);
+
+    $notes=htmlspecialchars($notes);
+
+    $notes=addslashes($notes);
+
+    $con = $this->db();
+
+    $now = time();
+    $twoWeeks=strtotime('-2 week');
+    $sql = "UPDATE `leads_rejection` SET approval='2', reason='$reason', note='$notes', date='$now' WHERE client_id=$client_id AND lead_id=$lead_id";
+
+
+    //var_dump($sql);
+    //die();print $sql;
+
+    if($con->query($sql)){
+
+      echo "Success";
+
+    } else {
+
+      echo "sql error";//$sql;
+
+      return;
+
+    }
+    $sql1="SELECT approval from leads_rejection where client_id='".$client_id."' AND date>'".$twoWeeks."'";
+    $res=$con->query($sql1);
+   // var_dump($res);
+    $total = 0;
+    $rejected = 0;
+    if($res)
+    {
+      while($row=$res->fetch_assoc())
+      {
+        $total++;
+        //var_dump($row);
+        if($row['approval']=='0' || $row['approval']=='2' || $row['approval']=='4')
+        {
+          $rejected++;
+        }
+      }
+      $rejPercent=$rejected*100/$total;
+      //var_dump('regected: '.$rejected);
+     // var_dump('total: '.$total);
+      //var_dump($rejPercent);
+      if($rejPercent>30)
+      {
+        $this->model->rejectedMoreThan30($_SESSION['user_name']);
+      }
+    }
+    
   }
+
 
   function action_downloadleads()
 
@@ -123,7 +196,6 @@ class Controller_client_leads extends Controller
     }
 
   }
-
 
 
   function action_getLeads(){

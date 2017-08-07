@@ -7,7 +7,10 @@ $gettokenResult=mysqli_query($con, $gettokenQuery);
 $result=mysqli_fetch_assoc($gettokenResult);
 $oldToken=(string)$result['token'];
 // echo $oldToken.'<pre>';
-$infusionsoft = new \Infusionsoft\Infusionsoft(array('clientId' => '5fdsmkxjb6h9k6g2y7nkx2tu',    'clientSecret' => 'jDUKwcvSg4',    'redirectUri' => 'http://leadpoint.energysmart.com.au/test.php',
+$infusionsoft = new \Infusionsoft\Infusionsoft(array(
+    'clientId' => '5fdsmkxjb6h9k6g2y7nkx2tu',
+    'clientSecret' => 'jDUKwcvSg4',
+    'redirectUri' => 'http://project008/test.php',
 ));
 $infusionsoft->setToken(unserialize($oldToken));
 $newTok=$infusionsoft->refreshAccessToken();

@@ -24,9 +24,9 @@ if($yesterday>9){
             <form id = "reportmain" method="post" action="/admin_reports/getAverage/">
                 <div class="form-group ">
                     <div class="input-daterange input-group" id="datepicker">
-                        <input type="text" class="input-sm form-control" name="start" value="<?php print date($yesterday.'-m-Y')?>" />
+                        <input type="text" class="input-sm form-control" name="start" value="<?php print date('m/'.$yesterday.'/Y')?>" />
                         <span class="input-group-addon">to</span>
-                        <input type="text" class="input-sm form-control" name="end"  value="<?php print date('d-m-Y')?>" />
+                        <input type="text" class="input-sm form-control" name="end"  value="<?php print date('m/d/Y')?>" />
                     </div>
                 </div>
                 <div class="form-group">
