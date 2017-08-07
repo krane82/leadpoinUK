@@ -1,5 +1,5 @@
 <?php
-/*
+
 $lng=$_POST['lng'];
 $ltd=$_POST['ltd'];
 $radius=$_POST['radius'];
@@ -22,9 +22,6 @@ foreach($res->output as $item)
     if(!in_array($item->district,$arr))
     {$arr[]=$item->district;
     }
-} */
+}
 
-$arr = array();
-$arr[] = 'BR1';
-$arr[] = 'BR2';
 print implode(',',$arr);
